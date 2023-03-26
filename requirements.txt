@@ -1,6 +1,6 @@
 dython==0.7.3
 scipy
-pandas==1.5.*
+pandas
 seaborn
 numpy
 matplotlib
