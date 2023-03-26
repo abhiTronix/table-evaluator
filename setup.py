@@ -14,7 +14,7 @@ setuptools.setup(
     url="https://github.com/Baukebrenninkmeijer/Table-Evaluator",
     packages=setuptools.find_packages(),
     install_requires=[
-        'pandas==1.5.*',
+        'pandas',
         'numpy',
         'tqdm',
         'psutil',
