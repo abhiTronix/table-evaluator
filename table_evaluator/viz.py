@@ -69,9 +69,9 @@ def plot_correlation_difference(real: pd.DataFrame, fake: pd.DataFrame, plot_dif
     else:
         fig, ax = plt.subplots(1, 2, figsize=(20, 8))
 
-    real_corr = associations(real, nominal_columns=cat_cols, plot=False, theil_u=True,
+    real_corr = associations(real, nominal_columns=cat_cols, plot=False, nom_nom_assoc="theil",
                              mark_columns=True, annot=annot, ax=ax[0], cmap=cmap)['corr']
-    fake_corr = associations(fake, nominal_columns=cat_cols, plot=False, theil_u=True,
+    fake_corr = associations(fake, nominal_columns=cat_cols, plot=False, nom_nom_assoc="theil",
                              mark_columns=True, annot=annot, ax=ax[1], cmap=cmap)['corr']
 
     if plot_diff:
@@ -105,12 +105,12 @@ def plot_correlation_comparison(evaluators: List, annot=False):
     flat_ax = ax.flatten()
     flat_ax[nr_plots + 1].clear()
     fake_corr = []
-    real_corr = associations(evaluators[0].real, nominal_columns=evaluators[0].categorical_columns, plot=False, theil_u=True,
+    real_corr = associations(evaluators[0].real, nominal_columns=evaluators[0].categorical_columns, plot=False, nom_nom_assoc="theil",
                              mark_columns=True, annot=False, cmap=cmap, cbar=False, ax=flat_ax[0])['corr']
     for i in range(1, nr_plots):
         cbar = True if i % (nr_plots - 1) == 0 else False
         fake_corr.append(
-            associations(evaluators[i - 1].fake, nominal_columns=evaluators[0].categorical_columns, plot=False, theil_u=True,
+            associations(evaluators[i - 1].fake, nominal_columns=evaluators[0].categorical_columns, plot=False, nom_nom_assoc="theil",
                          mark_columns=True, annot=False, cmap=cmap, cbar=cbar, ax=flat_ax[i])['corr']
         )
         if i % (nr_plots - 1) == 0:
