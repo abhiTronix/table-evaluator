@@ -1,4 +1,4 @@
-dython==0.7.3
+dython
 scipy
 pandas
 seaborn
